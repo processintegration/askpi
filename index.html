@@ -1,77 +1,59 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AskPI: AI Tutor</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 2rem;
-      background-color: #f7f7f7;
-    }
-    #ask-form {
-      display: flex;
-      flex-direction: column;
-      max-width: 600px;
-      margin: auto;
-    }
-    textarea {
-      padding: 10px;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-    button {
-      padding: 10px;
-      background-color: #0077cc;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    #answer {
-      margin-top: 2rem;
-      padding: 1rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>AskPI - Your AI Tutor for Process Integration</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>AskPI: AI-Powered Q&A</h1>
-  <form id="ask-form">
-    <label for="question">Ask a question about Process Integration:</label>
-    <textarea id="question" rows="4" placeholder="e.g., What is pinch analysis?"></textarea>
-    <button type="submit">Get Answer</button>
-  </form>
-  <div id="answer"></div>
+    <header>
+        <h1>AskPI</h1>
+        <p>Your AI-Powered Learning Assistant for Process Integration</p>
+    </header>
+    <main>
+        <section>
+            <p>Welcome to AskPI – a free and open educational tool designed to help chemical engineering students understand Process Integration using visual aids and AI support.</p>
+            <div class="buttons">
+                <a href="https://example.com/concept-cards" target="_blank" class="resource-button">📘 Visual Concept Cards</a>
+                <a href="https://example.com/worksheets" target="_blank" class="resource-button">📄 Guided Worksheets</a>
+            </div>
+        </section>
+        <section class="chatbot-section">
+            <h2>💬 Ask the AI Chatbot</h2>
+            <p>Type your question below (e.g., "Explain composite curve again"):</p>
+            <form id="chat-form">
+                <input type="text" id="question" placeholder="Ask your question here..." required />
+                <button type="submit">Ask</button>
+            </form>
+            <div id="response-box"></div>
+        </section>
+    </main>
+    <footer>
+        <p>Created with ❤️ by AskPI Project | Open Educational Resource (OER)</p>
+    </footer>
 
-  <script>
-    document.getElementById("ask-form").addEventListener("submit", async function (e) {
-      e.preventDefault();
-      const question = document.getElementById("question").value;
-      const responseDiv = document.getElementById("answer");
-      responseDiv.innerHTML = "<em>Thinking...</em>";
+    <script>
+    document.getElementById("chat-form").addEventListener("submit", async function(event) {
+        event.preventDefault();
+        const question = document.getElementById("question").value;
+        const responseBox = document.getElementById("response-box");
+        responseBox.innerHTML = "Thinking...";
 
-      try {
-        const res = await fetch("https://your-render-url.onrender.com/ask", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ question })
-        });
-
-        const data = await res.json();
-        if (data.answer) {
-          responseDiv.innerHTML = "<strong>Answer:</strong> " + data.answer;
-        } else {
-          responseDiv.innerHTML = "<strong>Error:</strong> No answer returned.";
+        try {
+            const res = await fetch("https://askpi-backend.onrender.com/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ question })
+            });
+            const data = await res.json();
+            responseBox.innerHTML = `<strong>Answer:</strong> ${data.answer}`;
+        } catch (err) {
+            responseBox.innerHTML = "There was an error getting a response. Please try again later.";
         }
-      } catch (err) {
-        responseDiv.innerHTML = "<strong>Error:</strong> " + err.message;
-      }
     });
-  </script>
+    </script>
 </body>
 </html>
