@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AskPI: AI Tutor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f7f7f7;
+    }
+    #ask-form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: auto;
+    }
+    textarea {
+      padding: 10px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    button {
+      padding: 10px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    #answer {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>AskPI: AI-Powered Q&A</h1>
+  <form id="ask-form">
+    <label for="question">Ask a question about Process Integration:</label>
+    <textarea id="question" rows="4" placeholder="e.g., What is pinch analysis?"></textarea>
+    <button type="submit">Get Answer</button>
+  </form>
+  <div id="answer"></div>
+
+  <script>
+    document.getElementById("ask-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const question = document.getElementById("question").value;
+      const responseDiv = document.getElementById("answer");
+      responseDiv.innerHTML = "<em>Thinking...</em>";
+
+      try {
+        const res = await fetch("https://your-render-url.onrender.com/ask", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ question })
+        });
+
+        const data = await res.json();
+        if (data.answer) {
+          responseDiv.innerHTML = "<strong>Answer:</strong> " + data.answer;
+        } else {
+          responseDiv.innerHTML = "<strong>Error:</strong> No answer returned.";
+        }
+      } catch (err) {
+        responseDiv.innerHTML = "<strong>Error:</strong> " + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
