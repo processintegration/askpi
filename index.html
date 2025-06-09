@@ -1,44 +1,141 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AskPI - Your AI Tutor for Process Integration</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .card {
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.1), 0 8px 10px -6px rgba(59, 130, 246, 0.1);
+        }
+        .resource-button {
+            transition: all 0.3s ease;
+        }
+        .resource-button:hover {
+            transform: translateY(-2px);
+        }
+        #response-box {
+            transition: all 0.3s ease;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <h1>AskPI</h1>
-        <p>Your AI-Powered Learning Assistant for Process Integration</p>
-    </header>
-    <main>
-        <section>
-            <p>Welcome to AskPI – a free and open educational tool designed to help chemical engineering students understand Process Integration using visual aids and AI support.</p>
-            <div class="buttons">
-                <a href="https://example.com/concept-cards" target="_blank" class="resource-button">📘 Visual Concept Cards</a>
-                <a href="https://example.com/worksheets" target="_blank" class="resource-button">📄 Guided Worksheets</a>
+<body class="antialiased">
+    <div class="container mx-auto px-4 py-8 max-w-5xl">
+        <header class="text-center mb-12 pt-8">
+            <div class="flex justify-center items-center mb-4">
+                <div class="bg-blue-600 text-white p-3 rounded-full mr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                </div>
+                <h1 class="text-5xl font-bold gradient-text">AskPI</h1>
             </div>
-        </section>
-        <section class="chatbot-section">
-            <h2>💬 Ask the AI Chatbot</h2>
-            <p>Type your question below (e.g., "Explain composite curve again"):</p>
-            <form id="chat-form">
-                <input type="text" id="question" placeholder="Ask your question here..." required />
-                <button type="submit">Ask</button>
-            </form>
-            <div id="response-box"></div>
-        </section>
-    </main>
-    <footer>
-        <p>Created with ❤️ by AskPI Project | Open Educational Resource (OER)</p>
-    </footer>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Your AI-Powered Learning Assistant for Process Integration</p>
+        </header>
+
+        <main class="space-y-12">
+            <section class="bg-white rounded-2xl shadow-lg p-8 card">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-2xl font-semibold mb-4 text-gray-800">Welcome to AskPI</h2>
+                    <p class="text-gray-600 mb-8 text-lg">A free and open educational tool designed to help chemical engineering students understand Process Integration using visual aids and AI support.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <a href="https://example.com/concept-cards" target="_blank" class="resource-button flex items-center justify-center bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 px-6 rounded-xl shadow-md hover:shadow-lg">
+                            <span class="text-2xl mr-3">📘</span>
+                            <span class="font-medium">Visual Concept Cards</span>
+                        </a>
+                        <a href="https://example.com/worksheets" target="_blank" class="resource-button flex items-center justify-center bg-gradient-to-r from-indigo-500 to-indigo-600 text-white py-4 px-6 rounded-xl shadow-md hover:shadow-lg">
+                            <span class="text-2xl mr-3">📄</span>
+                            <span class="font-medium">Guided Worksheets</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-2xl shadow-lg p-8 card">
+                <div class="max-w-3xl mx-auto">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                            </svg>
+                        </div>
+                        <h2 class="text-2xl font-semibold text-gray-800">Ask the AI Chatbot</h2>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6">Type your question below (e.g., "Explain composite curve again"):</p>
+                    
+                    <form id="chat-form" class="mb-6">
+                        <div class="flex flex-col md:flex-row gap-3">
+                            <input 
+                                type="text" 
+                                id="question" 
+                                placeholder="Ask your question here..." 
+                                required 
+                                class="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            />
+                            <button 
+                                type="submit" 
+                                class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center"
+                            >
+                                <span>Ask</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div 
+                        id="response-box" 
+                        class="bg-gray-50 border border-gray-200 rounded-lg p-6 min-h-[100px] hidden"
+                    ></div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="mt-16 text-center text-gray-500 py-8 border-t border-gray-200">
+            <p>Created with ❤️ by AskPI Project | Open Educational Resource (OER)</p>
+        </footer>
+    </div>
 
     <script>
     document.getElementById("chat-form").addEventListener("submit", async function(event) {
         event.preventDefault();
         const question = document.getElementById("question").value;
         const responseBox = document.getElementById("response-box");
-        responseBox.innerHTML = "Thinking...";
+        
+        // Show the response box if hidden
+        responseBox.classList.remove("hidden");
+        responseBox.classList.add("flex", "items-center", "justify-center");
+        responseBox.innerHTML = `
+            <div class="flex items-center">
+                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span class="text-gray-600">Processing your question...</span>
+            </div>
+        `;
 
         try {
             const res = await fetch("https://askpi-backend.onrender.com/chat", {
@@ -49,11 +146,33 @@
                 body: JSON.stringify({ question })
             });
             const data = await res.json();
-            responseBox.innerHTML = `<strong>Answer:</strong> ${data.answer}`;
+            
+            responseBox.classList.remove("flex", "items-center", "justify-center");
+            responseBox.innerHTML = `
+                <div class="space-y-3">
+                    <div class="flex items-center mb-2">
+                        <div class="bg-blue-100 p-2 rounded-full mr-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-medium text-gray-800">AskPI Response</h3>
+                    </div>
+                    <div class="text-gray-700 pl-10">${data.answer}</div>
+                </div>
+            `;
         } catch (err) {
-            responseBox.innerHTML = "There was an error getting a response. Please try again later.";
+            responseBox.classList.remove("flex", "items-center", "justify-center");
+            responseBox.innerHTML = `
+                <div class="text-center text-red-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p>There was an error getting a response. Please try again later.</p>
+                </div>
+            `;
         }
     });
     </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'94d24c1fd2d09c13',t:'MTc0OTQ4OTYwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
