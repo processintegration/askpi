@@ -13,7 +13,7 @@
       background-color: #f8fafc;
     }
     .hero-gradient {
-      background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+      background: linear-gradient(135deg, #7c3aed 70%, #ec4899 30%);
     }
     .card {
       transition: all 0.3s ease;
@@ -23,7 +23,7 @@
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
     }
     .feature-icon {
-      background: linear-gradient(135deg, #a78bfa 0%, #ec4899 100%);
+      background: linear-gradient(135deg, #7c3aed 70%, #ec4899 30%);
     }
     .spinner {
       border: 4px solid #e5e7eb;
@@ -138,6 +138,13 @@
   </footer>
 
   <script>
+    // Scroll to top on load (for mobile devices)
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 100);
+    });
+
     document.getElementById("chat-form").addEventListener("submit", async function(event) {
       event.preventDefault();
       const question = document.getElementById("question").value.trim();
