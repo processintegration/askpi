@@ -3,176 +3,169 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AskPI - Your AI Tutor for Process Integration</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>AskPI</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f8fafc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f8;
     }
-    .hero-gradient {
-      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     }
-    .card {
-      transition: all 0.3s ease;
+    h1 {
+      text-align: center;
+      color: #333;
     }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    textarea {
+      width: 100%;
+      height: 120px;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: vertical;
     }
-    .feature-icon {
-      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    button {
+      padding: 10px 18px;
+      margin: 10px 5px 0 0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+    .primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .primary:hover {
+      background-color: #0056b3;
+    }
+    .secondary {
+      background-color: #6c757d;
+      color: white;
+    }
+    .secondary:hover {
+      background-color: #565e64;
+    }
+    #response {
+      margin-top: 20px;
+      padding: 16px;
+      background-color: #f9fafc;
+      border-left: 4px solid #007bff;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      font-size: 16px;
+      min-height: 100px;
     }
     .spinner {
-      border: 4px solid #e5e7eb;
-      border-top: 4px solid #3b82f6;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #007bff;
       border-radius: 50%;
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       animation: spin 1s linear infinite;
-      margin: auto;
+      margin: 20px auto;
+      display: none;
     }
     @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .icon-buttons {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .icon-button {
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      background-color: #e9ecef;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+    .icon-button:hover {
+      background-color: #d6d8db;
+    }
+    .icon-button span {
+      margin-left: 6px;
     }
   </style>
 </head>
 <body>
-  <header class="hero-gradient text-white">
-    <div class="container mx-auto px-4 py-16 md:py-24">
-      <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">AskPI</h1>
-        <p class="text-xl md:text-2xl mb-8">An Integrated Visual and AI-Supported Open Educational Resource for Process Integration</p>
-        <p class="text-lg opacity-90 mb-8">Enhancing student engagement and understanding in chemical engineering through visual learning tools and interactive AI support</p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="#resources" class="bg-white text-blue-700 hover:bg-blue-50 font-medium px-6 py-3 rounded-lg transition-colors">Explore Resources</a>
-          <a href="#chatbot" class="bg-blue-800 hover:bg-blue-900 text-white font-medium px-6 py-3 rounded-lg transition-colors">Ask the AI</a>
-        </div>
-      </div>
+  <div class="container">
+    <h1>AskPI Assistant</h1>
+    <textarea id="questionInput" placeholder="Ask a question related to your resource..."></textarea>
+    <br />
+    <button class="primary" onclick="analyzeQuestion()">Analyze</button>
+    <div class="icon-buttons">
+      <a class="icon-button" href="#" onclick="alert('Visual Concept Cards coming soon!')">
+        📘<span>Visual Concept Card</span>
+      </a>
+      <a class="icon-button" href="#" onclick="alert('Guided Worksheets coming soon!')">
+        📝<span>Guided Worksheet</span>
+      </a>
     </div>
-  </header>
+    <div id="spinner" class="spinner"></div>
+    <div id="response"></div>
+  </div>
 
-  <main class="container mx-auto px-4 py-12">
-    <!-- About AskPI -->
-    <section class="max-w-4xl mx-auto mb-16">
-      <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">About AskPI</h2>
-      <div class="bg-white rounded-xl shadow-md p-8">
-        <p class="text-gray-700 mb-4">Process Integration is a key component in the chemical engineering curriculum...</p>
-        <p class="text-gray-700 mb-4">Drawing from five years of teaching experience...</p>
-        <p class="text-gray-700">This Open Educational Resource (OER) promotes active learning...</p>
-      </div>
-    </section>
-
-    <!-- Learning Resources -->
-    <section id="resources" class="max-w-4xl mx-auto mb-16">
-      <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Learning Resources</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Card 1 -->
-        <div class="bg-white rounded-xl shadow-md p-6 card">
-          <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
-            <!-- Icon -->
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">Visual Concept Cards</h3>
-          <p class="text-gray-600 mb-4">Single-topic explanations...</p>
-          <a href="conceptcard.html" target="_blank" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-800">
-            Access Concept Cards →
-          </a>
-        </div>
-        <!-- Card 2 -->
-        <div class="bg-white rounded-xl shadow-md p-6 card">
-          <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
-            <!-- Icon -->
-          </div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-3">Guided Worksheets</h3>
-          <p class="text-gray-600 mb-4">Scaffold student learning...</p>
-          <a href="https://example.com/worksheets" target="_blank" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-800">
-            Access Worksheets →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- AI Chatbot Section -->
-    <section id="chatbot" class="max-w-4xl mx-auto mb-16">
-      <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">AI-Powered Learning Assistant</h2>
-      <div class="bg-white rounded-xl shadow-md p-8">
-        <p class="text-gray-700 mb-6">The AskPI AI assistant functions as a virtual tutor...</p>
-
-        <div class="bg-blue-50 border border-blue-100 rounded-lg p-6 mb-6">
-          <h3 class="text-xl font-semibold text-gray-800 mb-4">💬 Ask the AI Chatbot</h3>
-          <p class="text-gray-600 mb-4">Type your question below:</p>
-          <form id="chat-form" class="mb-6">
-            <div class="flex flex-col md:flex-row gap-3">
-              <input 
-                type="text" 
-                id="question" 
-                placeholder="Ask your question here..." 
-                required 
-                class="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-              <button 
-                type="submit" 
-                class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300"
-              >
-                Ask
-              </button>
-            </div>
-          </form>
-          <div id="response-box" class="bg-white border border-gray-200 rounded-lg p-6 min-h-[100px] hidden"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer Note -->
-    <section class="max-w-4xl mx-auto">
-      <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 text-center">
-        <p class="text-sm text-gray-700">All materials are licensed under Creative Commons...</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="bg-gray-800 text-white py-8 mt-16">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <p>Created with ❤️ by AskPI Project | Open Educational Resource (OER)</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- JavaScript for AI Interaction -->
   <script>
-    document.getElementById("chat-form").addEventListener("submit", async function(event) {
-      event.preventDefault();
-      const question = document.getElementById("question").value.trim();
-      const responseBox = document.getElementById("response-box");
+    async function analyzeQuestion() {
+      const input = document.getElementById('questionInput').value.trim();
+      const responseBox = document.getElementById('response');
+      const spinner = document.getElementById('spinner');
 
-      if (!question) {
-        responseBox.innerHTML = "<p class='text-red-500'>❗ Please enter a question.</p>";
-        responseBox.classList.remove("hidden");
-        return;
+      responseBox.innerHTML = '';
+      spinner.style.display = 'block';
+
+      // Simulate API call (replace this with actual OpenAI call in production)
+      setTimeout(() => {
+        const markdownAnswer = `
+### Here's what I found:
+
+**Key Concepts Identified:**
+- Concept 1: _Explained clearly._
+- Concept 2: _Further elaboration needed._
+
+**Next Steps:**
+1. Use the 📝 Guided Worksheet to apply these.
+2. Refer to 📘 Visual Concept Card for summaries.
+
+> "Learning is a treasure that will follow its owner everywhere." – Chinese Proverb
+        `;
+
+        spinner.style.display = 'none';
+        typeMarkdown(markdownAnswer, responseBox);
+      }, 2000);
+    }
+
+    function typeMarkdown(text, element, delay = 10) {
+      let i = 0;
+      let raw = '';
+      function type() {
+        if (i < text.length) {
+          raw += text.charAt(i);
+          element.innerHTML = marked.parse(raw);
+          i++;
+          setTimeout(type, delay);
+        }
       }
-
-      // Show spinner
-      responseBox.innerHTML = "<div class='spinner'></div>";
-      responseBox.classList.remove("hidden");
-
-      try {
-        const res = await fetch("https://askpi-backend.onrender.com/ask", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ question })
-        });
-        const data = await res.json();
-        responseBox.innerHTML = `<strong>Answer:</strong> ${data.answer || data.error || "No answer returned."}`;
-      } catch (err) {
-        responseBox.innerHTML = "⚠️ There was an error getting a response. Please try again later.";
-      }
-    });
+      type();
+    }
   </script>
 </body>
 </html>
