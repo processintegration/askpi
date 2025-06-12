@@ -1,172 +1,178 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AskPI - Your AI Tutor for Process Integration</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-        }
-        .hero-gradient {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-        }
-        .card {
-            transition: all 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        .feature-icon {
-            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AskPI - Your AI Tutor for Process Integration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    }
+    .card {
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .feature-icon {
+      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    }
+    .spinner {
+      border: 4px solid #e5e7eb;
+      border-top: 4px solid #3b82f6;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin: auto;
+    }
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
 <body>
-    <header class="hero-gradient text-white">
-        <div class="container mx-auto px-4 py-16 md:py-24">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">AskPI</h1>
-                <p class="text-xl md:text-2xl mb-8">An Integrated Visual and AI-Supported Open Educational Resource for Process Integration</p>
-                <p class="text-lg opacity-90 mb-8">Enhancing student engagement and understanding in chemical engineering through visual learning tools and interactive AI support</p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="#resources" class="bg-white text-blue-700 hover:bg-blue-50 font-medium px-6 py-3 rounded-lg transition-colors">Explore Resources</a>
-                    <a href="#chatbot" class="bg-blue-800 hover:bg-blue-900 text-white font-medium px-6 py-3 rounded-lg transition-colors">Ask the AI</a>
-                </div>
-            </div>
+  <header class="hero-gradient text-white">
+    <div class="container mx-auto px-4 py-16 md:py-24">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">AskPI</h1>
+        <p class="text-xl md:text-2xl mb-8">An Integrated Visual and AI-Supported Open Educational Resource for Process Integration</p>
+        <p class="text-lg opacity-90 mb-8">Enhancing student engagement and understanding in chemical engineering through visual learning tools and interactive AI support</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#resources" class="bg-white text-blue-700 hover:bg-blue-50 font-medium px-6 py-3 rounded-lg transition-colors">Explore Resources</a>
+          <a href="#chatbot" class="bg-blue-800 hover:bg-blue-900 text-white font-medium px-6 py-3 rounded-lg transition-colors">Ask the AI</a>
         </div>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <main class="container mx-auto px-4 py-12">
-        <section class="max-w-4xl mx-auto mb-16">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">About AskPI</h2>
-            <div class="bg-white rounded-xl shadow-md p-8">
-                <p class="text-gray-700 mb-4">Process Integration is a key component in the chemical engineering curriculum, particularly for sustainable energy and resource optimization. Despite its importance, undergraduate students often struggle with its abstract concepts and analytical demands.</p>
-                <p class="text-gray-700 mb-4">Drawing from five years of teaching experience, AskPI addresses these challenges by combining visual learning tools with interactive AI support to enhance conceptual understanding and independent problem-solving.</p>
-                <p class="text-gray-700">This Open Educational Resource (OER) promotes active learning, self-paced study, and continuous support outside the traditional classroom through three interconnected components.</p>
-            </div>
-        </section>
+  <main class="container mx-auto px-4 py-12">
+    <!-- About AskPI -->
+    <section class="max-w-4xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">About AskPI</h2>
+      <div class="bg-white rounded-xl shadow-md p-8">
+        <p class="text-gray-700 mb-4">Process Integration is a key component in the chemical engineering curriculum...</p>
+        <p class="text-gray-700 mb-4">Drawing from five years of teaching experience...</p>
+        <p class="text-gray-700">This Open Educational Resource (OER) promotes active learning...</p>
+      </div>
+    </section>
 
-        <section id="resources" class="max-w-4xl mx-auto mb-16">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Learning Resources</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-xl shadow-md p-6 card">
-                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Visual Concept Cards</h3>
-                    <p class="text-gray-600 mb-4">Single-topic explanations using intuitive diagrams, simplified equations, real-world analogies, and QR-linked microlearning videos.</p>
-                    <p class="text-gray-600 mb-6">These cards serve as concise reference tools for both classroom use and self-study.</p>
-                    <a href="conceptcard.html" target="_blank" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-800">
-                        Access Concept Cards
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-md p-6 card">
-                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Guided Worksheets</h3>
-                    <p class="text-gray-600 mb-4">Scaffold student learning by breaking down complex problems into manageable steps with conceptual warm-ups, graphical plotting activities, and reflective questions.</p>
-                    <p class="text-gray-600 mb-6">Guide learners through the logic of Process Integration analysis step by step.</p>
-                    <a href="https://example.com/worksheets" target="_blank" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-800">
-                        Access Worksheets
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="chatbot" class="max-w-4xl mx-auto mb-16">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">AI-Powered Learning Assistant</h2>
-            <div class="bg-white rounded-xl shadow-md p-8">
-                <div class="mb-6">
-                    <p class="text-gray-700 mb-4">The AskPI AI assistant functions as a virtual tutor, offering clarity on frequently misunderstood topics and walking students through typical Process Integration problems in a conversational format.</p>
-                    <p class="text-gray-700 mb-6">This feature is especially valuable for students who prefer self-paced or asynchronous learning environments.</p>
-                </div>
-                
-                <div class="bg-blue-50 border border-blue-100 rounded-lg p-6 mb-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-4">💬 Ask the AI Chatbot</h3>
-                    <p class="text-gray-600 mb-4">Type your question below (e.g., "Explain composite curve again" or "How do I calculate minimum approach temperature?"):</p>
-                    
-                    <form id="chat-form" class="mb-6">
-                        <div class="flex flex-col md:flex-row gap-3">
-                            <input 
-                                type="text" 
-                                id="question" 
-                                placeholder="Ask your question here..." 
-                                required 
-                                class="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                            />
-                            <button 
-                                type="submit" 
-                                class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300"
-                            >
-                                Ask
-                            </button>
-                        </div>
-                    </form>
-                    
-                    <div id="response-box" class="bg-white border border-gray-200 rounded-lg p-6 min-h-[100px] hidden"></div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="max-w-4xl mx-auto">
-            <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 text-center">
-                <p class="text-sm text-gray-700">All materials are licensed under Creative Commons. AskPI bridges structured learning and AI-supported inquiry, contributing to innovative open teaching practices in engineering education.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800 text-white py-8 mt-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <p>Created with ❤️ by AskPI Project | Open Educational Resource (OER)</p>
-            </div>
+    <!-- Learning Resources -->
+    <section id="resources" class="max-w-4xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Learning Resources</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-xl shadow-md p-6 card">
+          <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
+            <!-- Icon -->
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">Visual Concept Cards</h3>
+          <p class="text-gray-600 mb-4">Single-topic explanations...</p>
+          <a href="conceptcard.html" target="_blank" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-800">
+            Access Concept Cards →
+          </a>
         </div>
-    </footer>
+        <!-- Card 2 -->
+        <div class="bg-white rounded-xl shadow-md p-6 card">
+          <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
+            <!-- Icon -->
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">Guided Worksheets</h3>
+          <p class="text-gray-600 mb-4">Scaffold student learning...</p>
+          <a href="https://example.com/worksheets" target="_blank" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-800">
+            Access Worksheets →
+          </a>
+        </div>
+      </div>
+    </section>
 
-    <script>
+    <!-- AI Chatbot Section -->
+    <section id="chatbot" class="max-w-4xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">AI-Powered Learning Assistant</h2>
+      <div class="bg-white rounded-xl shadow-md p-8">
+        <p class="text-gray-700 mb-6">The AskPI AI assistant functions as a virtual tutor...</p>
+
+        <div class="bg-blue-50 border border-blue-100 rounded-lg p-6 mb-6">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">💬 Ask the AI Chatbot</h3>
+          <p class="text-gray-600 mb-4">Type your question below:</p>
+          <form id="chat-form" class="mb-6">
+            <div class="flex flex-col md:flex-row gap-3">
+              <input 
+                type="text" 
+                id="question" 
+                placeholder="Ask your question here..." 
+                required 
+                class="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+              <button 
+                type="submit" 
+                class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300"
+              >
+                Ask
+              </button>
+            </div>
+          </form>
+          <div id="response-box" class="bg-white border border-gray-200 rounded-lg p-6 min-h-[100px] hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Note -->
+    <section class="max-w-4xl mx-auto">
+      <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 text-center">
+        <p class="text-sm text-gray-700">All materials are licensed under Creative Commons...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white py-8 mt-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <p>Created with ❤️ by AskPI Project | Open Educational Resource (OER)</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for AI Interaction -->
+  <script>
     document.getElementById("chat-form").addEventListener("submit", async function(event) {
-        event.preventDefault();
-        const question = document.getElementById("question").value;
-        const responseBox = document.getElementById("response-box");
-        
-        // Show the response box if hidden
-        responseBox.classList.remove("hidden");
-        responseBox.innerHTML = "Thinking...";
+      event.preventDefault();
+      const question = document.getElementById("question").value.trim();
+      const responseBox = document.getElementById("response-box");
 
-        try {
-            const res = await fetch("https://askpi-backend.onrender.com/ask", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ question })
-            });
-            const data = await res.json();
-            responseBox.innerHTML = `<strong>Answer:</strong> ${data.answer}`;
-        } catch (err) {
-            responseBox.innerHTML = "There was an error getting a response. Please try again later.";
-        }
+      if (!question) {
+        responseBox.innerHTML = "<p class='text-red-500'>❗ Please enter a question.</p>";
+        responseBox.classList.remove("hidden");
+        return;
+      }
+
+      // Show spinner
+      responseBox.innerHTML = "<div class='spinner'></div>";
+      responseBox.classList.remove("hidden");
+
+      try {
+        const res = await fetch("https://askpi-backend.onrender.com/ask", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ question })
+        });
+        const data = await res.json();
+        responseBox.innerHTML = `<strong>Answer:</strong> ${data.answer || data.error || "No answer returned."}`;
+      } catch (err) {
+        responseBox.innerHTML = "⚠️ There was an error getting a response. Please try again later.";
+      }
     });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'94d261a594d037b2',t:'MTc0OTQ5MDQ4NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  </script>
+</body>
 </html>
