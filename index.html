@@ -92,7 +92,7 @@
       </div>
     </section>
 
-    <section id="chatbot" class="max-w-4xl mx-auto mb-16">
+    <section id="chatbot" class="max-w-6xl mx-auto mb-16">
       <h2 class="text-3xl font-bold text-purple-800 mb-6 text-center">AI-Powered Learning Assistant</h2>
       <div class="bg-white rounded-xl shadow-md p-8">
         <p class="text-gray-700 mb-6">The AskPI AI assistant functions as a virtual tutor...</p>
@@ -117,7 +117,7 @@
               </button>
             </div>
           </form>
-          <div id="response-box" class="bg-white border border-gray-200 rounded-lg p-6 min-h-[100px] hidden prose max-w-none"></div>
+          <div id="response-box" class="bg-white border border-gray-200 rounded-lg p-6 max-h-[500px] overflow-y-auto space-y-4 prose max-w-none"></div>
         </div>
       </div>
     </section>
@@ -140,17 +140,24 @@
   <script>
     document.getElementById("chat-form").addEventListener("submit", async function(event) {
       event.preventDefault();
-      const question = document.getElementById("question").value.trim();
+      const questionInput = document.getElementById("question");
+      const question = questionInput.value.trim();
       const responseBox = document.getElementById("response-box");
 
-      if (!question) {
-        responseBox.innerHTML = "<p class='text-red-500'>❗ Please enter a question.</p>";
-        responseBox.classList.remove("hidden");
-        return;
-      }
+      if (!question) return;
 
-      responseBox.innerHTML = "<div class='spinner'></div>";
-      responseBox.classList.remove("hidden");
+      const userBlock = document.createElement("div");
+      userBlock.classList.add("p-4", "bg-purple-100", "rounded-lg");
+      userBlock.innerHTML = `<strong>You:</strong> ${question}`;
+      responseBox.appendChild(userBlock);
+
+      const aiBlock = document.createElement("div");
+      aiBlock.classList.add("p-4", "bg-gray-100", "rounded-lg");
+      aiBlock.innerHTML = "<div class='spinner'></div>";
+      responseBox.appendChild(aiBlock);
+
+      responseBox.scrollTop = responseBox.scrollHeight;
+      questionInput.value = "";
 
       try {
         const res = await fetch("https://askpi-backend.onrender.com/ask", {
@@ -162,9 +169,9 @@
         });
         const data = await res.json();
         const answer = data.answer || data.error || "No answer returned.";
-        typeMarkdown(answer, responseBox);
+        typeMarkdown(answer, aiBlock);
       } catch (err) {
-        responseBox.innerHTML = "⚠️ There was an error getting a response. Please try again later.";
+        aiBlock.innerHTML = "⚠️ There was an error getting a response.";
       }
     });
 
