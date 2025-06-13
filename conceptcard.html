@@ -10,7 +10,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f3f0f9;
+      background-color: #f8fafc;
     }
 
     .card {
@@ -34,8 +34,8 @@
   <!-- Navigation Bar -->
   <nav class="navbar fixed top-0 left-0 right-0 z-10 shadow-sm">
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold text-purple-700">Visual Concept Cards</a>
-      <a href="index.html" class="flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+      <a href="index.html" class="text-2xl font-bold text-indigo-700">Visual Concept Cards</a>
+      <a href="index.html" class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
           <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
         </svg>
@@ -46,21 +46,135 @@
 
   <div class="container mx-auto px-4 py-8 max-w-6xl mt-16">
     <header class="text-center mb-10">
-      <h1 class="text-4xl font-bold text-purple-800 mb-3">Visual Concept Cards</h1>
-      <p class="text-xl text-purple-600">Concise, diagram-rich cards with simplified explanations</p>
+      <h1 class="text-4xl font-bold text-indigo-800 mb-3">Visual Concept Cards</h1>
+      <p class="text-xl text-indigo-600">Concise, diagram-rich cards with simplified explanations</p>
     </header>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <!-- Card Template: Change only the color classes -->
+      <!-- Card Chapter 1 -->
       <a href="ch1.pdf" target="_blank" class="block h-full">
+        <div class="card bg-white rounded-lg shadow-md h-full border-t-blue-500">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h2 class="text-2xl font-semibold text-blue-700">Chapter 1</h2>
+              <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
+            </div>
+            <p class="text-gray-600 mb-6">Introduction & Basic Concepts</p>
+            <div class="flex items-center text-blue-600 mt-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span class="font-medium">View PDF</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Chapter 2 -->
+      <a href="ch2.pdf" target="_blank" class="block h-full">
+        <div class="card bg-white rounded-lg shadow-md h-full border-t-green-500">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h2 class="text-2xl font-semibold text-green-700">Chapter 2</h2>
+              <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
+            </div>
+            <p class="text-gray-600 mb-6">Energy Targets</p>
+            <div class="flex items-center text-green-600 mt-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span class="font-medium">View PDF</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Chapter 3 -->
+      <a href="ch3.pdf" target="_blank" class="block h-full">
+        <div class="card bg-white rounded-lg shadow-md h-full border-t-red-500">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h2 class="text-2xl font-semibold text-red-700">Chapter 3</h2>
+              <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
+            </div>
+            <p class="text-gray-600 mb-6">Heat Exchanger Network Design For Maximum Energy Recovery</p>
+            <div class="flex items-center text-red-600 mt-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span class="font-medium">View PDF</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Chapter 4 -->
+      <a href="ch4.pdf" target="_blank" class="block h-full">
+        <div class="card bg-white rounded-lg shadow-md h-full border-t-yellow-500">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h2 class="text-2xl font-semibold text-yellow-700">Chapter 4</h2>
+              <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
+            </div>
+            <p class="text-gray-600 mb-6">Designing a Heat Exchanger Network (HEN) with Minimum Number of Units</p>
+            <div class="flex items-center text-yellow-600 mt-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span class="font-medium">View PDF</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Chapter 5 -->
+      <a href="ch5.pdf" target="_blank" class="block h-full">
+        <div class="card bg-white rounded-lg shadow-md h-full border-t-indigo-500">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h2 class="text-2xl font-semibold text-indigo-700">Chapter 5</h2>
+              <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
+            </div>
+            <p class="text-gray-600 mb-6">Introduction to Pinch Design Methodology</p>
+            <div class="flex items-center text-indigo-600 mt-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span class="font-medium">View PDF</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Chapter 6 -->
+      <a href="ch6.pdf" target="_blank" class="block h-full">
+        <div class="card bg-white rounded-lg shadow-md h-full border-t-pink-500">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+              <h2 class="text-2xl font-semibold text-pink-700">Chapter 6</h2>
+              <span class="bg-pink-100 text-pink-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
+            </div>
+            <p class="text-gray-600 mb-6">Heat and Power Integration</p>
+            <div class="flex items-center text-pink-600 mt-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span class="font-medium">View PDF</span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Chapter 7 -->
+      <a href="ch7.pdf" target="_blank" class="block h-full">
         <div class="card bg-white rounded-lg shadow-md h-full border-t-purple-500">
           <div class="p-6">
             <div class="flex justify-between items-start mb-3">
-              <h2 class="text-2xl font-semibold text-purple-700">Chapter 1</h2>
+              <h2 class="text-2xl font-semibold text-purple-700">Chapter 7</h2>
               <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
             </div>
-            <p class="text-gray-600 mb-6">Introduction & Basic Concepts</p>
+            <p class="text-gray-600 mb-6">Process Optimization</p>
             <div class="flex items-center text-purple-600 mt-auto">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -70,45 +184,6 @@
           </div>
         </div>
       </a>
-
-      <!-- Duplicate and slightly vary the purples or use lilac/violet shades if needed for other chapters -->
-      <a href="ch2.pdf" target="_blank" class="block h-full">
-        <div class="card bg-white rounded-lg shadow-md h-full border-t-violet-500">
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-3">
-              <h2 class="text-2xl font-semibold text-violet-700">Chapter 2</h2>
-              <span class="bg-violet-100 text-violet-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
-            </div>
-            <p class="text-gray-600 mb-6">Energy Targets</p>
-            <div class="flex items-center text-violet-600 mt-auto">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              <span class="font-medium">View PDF</span>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <a href="ch3.pdf" target="_blank" class="block h-full">
-        <div class="card bg-white rounded-lg shadow-md h-full border-t-fuchsia-500">
-          <div class="p-6">
-            <div class="flex justify-between items-start mb-3">
-              <h2 class="text-2xl font-semibold text-fuchsia-700">Chapter 3</h2>
-              <span class="bg-fuchsia-100 text-fuchsia-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
-            </div>
-            <p class="text-gray-600 mb-6">Heat Exchanger Network Design For Maximum Energy Recovery</p>
-            <div class="flex items-center text-fuchsia-600 mt-auto">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              <span class="font-medium">View PDF</span>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- You may copy the same structure for chapters 4-7, adjusting text color and border color with purple variants like indigo, pink, rose, etc. -->
 
     </div>
   </div>
