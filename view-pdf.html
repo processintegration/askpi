@@ -36,13 +36,11 @@
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const file = params.get("file");
+    const fileId = params.get("id");
     const frame = document.getElementById("pdfFrame");
 
-    if (file) {
-      const baseUrl = "https://processintegration.github.io/askpi/";
-      const encodedUrl = encodeURIComponent(`${baseUrl}${file}`);
-      frame.src = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodedUrl}#toolbar=0`;
+    if (fileId) {
+      frame.src = `https://drive.google.com/file/d/${fileId}/preview`;
     } else {
       document.body.innerHTML = "<p class='text-center mt-10 text-red-600 text-xl'>No PDF file specified.</p>";
     }
