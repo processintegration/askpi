@@ -14,7 +14,7 @@
     }
 
     .pdf-container {
-      height: 100vh;
+      height: calc(100vh - 4rem);
       width: 100%;
       border: none;
     }
@@ -25,19 +25,20 @@
       padding: 1rem;
       font-size: 1.25rem;
       font-weight: bold;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <div class="navbar">
-    Viewing PDF
-  </div>
+  <div id="pdfTitle" class="navbar">Viewing PDF</div>
   <iframe id="pdfFrame" class="pdf-container" allowfullscreen></iframe>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const fileId = params.get("id");
+    const title = params.get("title") || "Viewing PDF";
     const frame = document.getElementById("pdfFrame");
+    document.getElementById("pdfTitle").innerText = decodeURIComponent(title);
 
     if (fileId) {
       frame.src = `https://drive.google.com/file/d/${fileId}/preview`;
