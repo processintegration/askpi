@@ -1,191 +1,84 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Concept Cards</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-        }
-        
-        .card {
-            transition: all 0.3s ease;
-            height: 100%;
-            border-top-width: 4px;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .navbar {
-            background-color: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Visual Concept Cards</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f3f4f6;
+    }
+    .card {
+      transition: all 0.3s ease;
+      height: 100%;
+      border-top-width: 4px;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .navbar {
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation Bar with Home Button -->
-    <nav class="navbar fixed top-0 left-0 right-0 z-10 shadow-sm">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-indigo-700">Visual Concept Cards</a>
-            <a href="index.html" class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                </svg>
-                Home
-            </a>
-        </div>
-    </nav>
-
-    <div class="container mx-auto px-4 py-8 max-w-6xl mt-16">
-        <header class="text-center mb-10">
-            <h1 class="text-4xl font-bold text-indigo-800 mb-3">Visual Concept Cards</h1>
-            <p class="text-xl text-gray-600">Concise, diagram-rich cards with simplified explanations</p>
-        </header>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Chapter 1 -->
-            <a href="ch1.pdf" target="_blank" class="block h-full">
-                <div class="card bg-white rounded-lg shadow-md h-full border-t-indigo-500">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h2 class="text-2xl font-semibold text-indigo-700">Chapter 1</h2>
-                            <span class="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
-                        </div>
-                        <p class="text-gray-600 mb-6">Introduction & Basic Concepts</p>
-                        <div class="flex items-center text-indigo-600 mt-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                            <span class="font-medium">View PDF</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Chapter 2 -->
-            <a href="ch2.pdf" target="_blank" class="block h-full">
-                <div class="card bg-white rounded-lg shadow-md h-full border-t-purple-500">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h2 class="text-2xl font-semibold text-purple-700">Chapter 2</h2>
-                            <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
-                        </div>
-                        <p class="text-gray-600 mb-6">Energy Targets</p>
-                        <div class="flex items-center text-purple-600 mt-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                            <span class="font-medium">View PDF</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Chapter 3 -->
-            <a href="ch3.pdf" target="_blank" class="block h-full">
-                <div class="card bg-white rounded-lg shadow-md h-full border-t-pink-500">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h2 class="text-2xl font-semibold text-pink-700">Chapter 3</h2>
-                            <span class="bg-pink-100 text-pink-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
-                        </div>
-                        <p class="text-gray-600 mb-6">Heat Exchanger Network Design For Maximum Energy Recovery</p>
-                        <div class="flex items-center text-pink-600 mt-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                            <span class="font-medium">View PDF</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Chapter 4 -->
-            <a href="ch4.pdf" target="_blank" class="block h-full">
-                <div class="card bg-white rounded-lg shadow-md h-full border-t-red-500">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h2 class="text-2xl font-semibold text-red-700">Chapter 4</h2>
-                            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
-                        </div>
-                        <p class="text-gray-600 mb-6">Capital Cost Considerations</p>
-                        <div class="flex items-center text-red-600 mt-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                            <span class="font-medium">View PDF</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Chapter 5 -->
-            <a href="ch5.pdf" target="_blank" class="block h-full">
-                <div class="card bg-white rounded-lg shadow-md h-full border-t-teal-500">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h2 class="text-2xl font-semibold text-teal-700">Chapter 5</h2>
-                            <span class="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
-                        </div>
-                        <p class="text-gray-600 mb-6">Process Utility Systems</p>
-                        <div class="flex items-center text-teal-600 mt-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                            <span class="font-medium">View PDF</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Chapter 6 -->
-            <a href="ch6.pdf" target="_blank" class="block h-full">
-                <div class="card bg-white rounded-lg shadow-md h-full border-t-orange-500">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h2 class="text-2xl font-semibold text-orange-700">Chapter 6</h2>
-                            <span class="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
-                        </div>
-                        <p class="text-gray-600 mb-6">Heat Integration of Major Equipment</p>
-                        <div class="flex items-center text-orange-600 mt-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                            <span class="font-medium">View PDF</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Chapter 7 -->
-            <a href="ch7.pdf" target="_blank" class="block h-full">
-                <div class="card bg-white rounded-lg shadow-md h-full border-t-yellow-500">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h2 class="text-2xl font-semibold text-yellow-700">Chapter 7</h2>
-                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
-                        </div>
-                        <p class="text-gray-600 mb-6">Water Pinch Analysis</p>
-                        <div class="flex items-center text-yellow-600 mt-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                            <span class="font-medium">View PDF</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
+  <!-- Navigation Bar -->
+  <nav class="navbar fixed top-0 left-0 right-0 z-10 shadow-sm">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="conceptcard.html" class="text-2xl font-bold text-indigo-700">Visual Concept Cards</a>
+      <a href="conceptcard.html" class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+        </svg>
+        Home
+      </a>
     </div>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'94d2f184a1eb188f',t:'MTc0OTQ5NjM3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  </nav>
+
+  <div class="container mx-auto px-4 py-8 max-w-6xl mt-16">
+    <header class="text-center mb-10">
+      <h1 class="text-4xl font-bold text-indigo-800 mb-3">Visual Concept Cards</h1>
+      <p class="text-xl text-gray-600">Concise, diagram-rich cards with simplified explanations</p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <script>
+        const chapters = [
+          { file: "ch1.pdf", color: "indigo", title: "Chapter 1", desc: "Introduction & Basic Concepts" },
+          { file: "ch2.pdf", color: "purple", title: "Chapter 2", desc: "Energy Targets" },
+          { file: "ch3.pdf", color: "pink", title: "Chapter 3", desc: "Heat Exchanger Network Design" },
+          { file: "ch4.pdf", color: "red", title: "Chapter 4", desc: "Capital Cost Considerations" },
+          { file: "ch5.pdf", color: "teal", title: "Chapter 5", desc: "Process Utility Systems" },
+          { file: "ch6.pdf", color: "orange", title: "Chapter 6", desc: "Heat Integration of Major Equipment" },
+          { file: "ch7.pdf", color: "yellow", title: "Chapter 7", desc: "Water Pinch Analysis" },
+        ];
+
+        document.write(chapters.map(chap => `
+          <a href="view-pdf.html?file=${encodeURIComponent(chap.file)}" target="_blank" class="block h-full">
+            <div class="card bg-white rounded-lg shadow-md h-full border-t-${chap.color}-500">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-3">
+                  <h2 class="text-2xl font-semibold text-${chap.color}-700">${chap.title}</h2>
+                  <span class="bg-${chap.color}-100 text-${chap.color}-800 text-xs font-medium px-2.5 py-0.5 rounded">PDF</span>
+                </div>
+                <p class="text-gray-600 mb-6">${chap.desc}</p>
+                <div class="flex items-center text-${chap.color}-600 mt-auto">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <span class="font-medium">View PDF</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        `).join(''));
+      </script>
+    </div>
+  </div>
+</body>
 </html>
