@@ -40,12 +40,9 @@
     const frame = document.getElementById("pdfFrame");
 
     if (file) {
-      // Use PDF.js with toolbar controls disabled
       const baseUrl = "https://processintegration.github.io/askpi/";
-      const viewerUrl = "https://mozilla.github.io/pdf.js/web/viewer.html";
-      const disableUI = "&toolbar=0&navpanes=0&view=fitH"; // Not official, but used for control
-      const fullUrl = `${viewerUrl}?file=${baseUrl}${file}#zoom=page-width&disableDownload=true&disablePrint=true`;
-      frame.src = fullUrl;
+      const encodedUrl = encodeURIComponent(`${baseUrl}${file}`);
+      frame.src = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodedUrl}#toolbar=0`;
     } else {
       document.body.innerHTML = "<p class='text-center mt-10 text-red-600 text-xl'>No PDF file specified.</p>";
     }
