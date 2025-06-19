@@ -58,11 +58,21 @@
 
   <main class="container mx-auto px-4 py-12">
     <section class="max-w-4xl mx-auto mb-16">
-      <h2 class="text-3xl font-bold text-purple-800 mb-6 text-center">About AskPI</h2>
-      <div class="bg-white rounded-xl shadow-md p-8">
-        <p class="text-gray-700 mb-4">Process Integration is a key component in the chemical engineering curriculum...</p>
-        <p class="text-gray-700 mb-4">Drawing from five years of teaching experience...</p>
-        <p class="text-gray-700">This Open Educational Resource (OER) promotes active learning...</p>
+      <h2 class="text-3xl font-bold text-purple-800 mb-6 text-center">AskPI Overview</h2>
+      <div class="bg-white rounded-xl shadow-md">
+        <div class="flex flex-wrap border-b border-gray-200 text-sm font-medium">
+          <button onclick="switchTab(0)" class="tab-button px-4 py-2 text-purple-700 hover:bg-purple-100 focus:outline-none active">About AskPI</button>
+          <button onclick="switchTab(1)" class="tab-button px-4 py-2 text-gray-600 hover:bg-purple-100 focus:outline-none">What is AskPI?</button>
+          <button onclick="switchTab(2)" class="tab-button px-4 py-2 text-gray-600 hover:bg-purple-100 focus:outline-none">Our Core Components</button>
+          <button onclick="switchTab(3)" class="tab-button px-4 py-2 text-gray-600 hover:bg-purple-100 focus:outline-none">Why AskPI is Different</button>
+          <button onclick="switchTab(4)" class="tab-button px-4 py-2 text-gray-600 hover:bg-purple-100 focus:outline-none">Our Impact</button>
+          <button onclick="switchTab(5)" class="tab-button px-4 py-2 text-gray-600 hover:bg-purple-100 focus:outline-none">Ready to Dive In?</button>
+        </div>
+        <div class="p-6 text-gray-700 space-y-4" id="tab-content">
+          <p>Welcome to AskPI, your open-source companion for mastering Process Integration in chemical engineering!</p>
+          <p>Process Integration (PI) is a vital part of chemical engineering, especially when it comes to sustainable energy and resource optimization.</p>
+          <p>However, many students find its concepts challenging due to their abstract nature and the complex analytical tasks involved. AskPI heps by providing a more accessible, flexible, and learner-centric approach.</p>
+        </div>
       </div>
     </section>
 
@@ -188,6 +198,24 @@
         }
       };
       type();
+    }
+
+    const tabContents = [
+      `<p><strong>About AskPI</strong></p><p>Welcome to AskPI, your open-source companion for mastering Process Integration in chemical engineering!</p><p>Process Integration (PI) is a vital part of chemical engineering, especially when it comes to sustainable energy and resource optimization.</p><p>However, many students find its concepts challenging due to their abstract nature and the complex analytical tasks involved. AskPI heps by providing a more accessible, flexible, and learner-centric approach.</p>`,
+      `<p><strong>What is AskPI?</strong></p><p>AskPI is an Open Educational Resource (OER) designed to transform how undergraduate students learn and engage with Process Integration. Our primary goal is to enhance your conceptual understanding and empower your independent problem-solving skills through a unique blend of visual learning tools and interactive AI support.</p>`,
+      `<p><strong>Our Core Components:</strong></p><ul class="list-disc ml-5"><li><strong>Visual Concept Cards:</strong> Break down complex ideas using intuitive diagrams, simplified equations, and key notes.</li><li><strong>Guided Worksheets:</strong> Step-by-step guides with warm-ups, plots, and reflections for deeper understanding.</li><li><strong>AI-Powered Q&A:</strong> Mobile-friendly tutor answering questions in real-time, trained on student materials.</li></ul>`,
+      `<p><strong>Why AskPI is Different:</strong></p><p>AskPI integrates visual pedagogy with AI. It's built using accessible tools (PowerPoint, Word, HTML), easily adaptable, and LMS-friendly.</p>`,
+      `<p><strong>Our Impact:</strong></p><p>AskPI boosts understanding, confidence, and assessment performance. Licensed under Creative Commons to support open education everywhere.</p>`,
+      `<p><strong>Ready to dive in?</strong></p><p>Explore our resources and start your journey to mastering Process Integration today!</p>`
+    ];
+
+    function switchTab(index) {
+      const content = document.getElementById("tab-content");
+      content.innerHTML = tabContents[index];
+      document.querySelectorAll(".tab-button").forEach((btn, i) => {
+        btn.classList.toggle("text-purple-700", i === index);
+        btn.classList.toggle("text-gray-600", i !== index);
+      });
     }
   </script>
 </body>
