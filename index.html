@@ -111,7 +111,6 @@
       </div>
     </section>
 
-    <!-- OTHER SECTIONS (UNCHANGED) -->
     <!-- Resources Section -->
     <section id="resources" class="max-w-4xl mx-auto mb-16">
       <h2 class="text-3xl font-bold text-purple-800 mb-8 text-center">Learning Resources</h2>
@@ -139,12 +138,13 @@
         <div class="bg-purple-50 border border-purple-200 rounded-lg p-6 mb-6">
           <h3 class="text-xl font-semibold text-purple-800 mb-4">💬 Ask the AI Chatbot</h3>
           <p class="text-gray-600 mb-4">Type your question below:</p>
-          <form id="chat-form" class="mb-6">
+          <form id="chat-form" class="mb-4">
             <div class="flex flex-col md:flex-row gap-3">
               <input type="text" id="question" placeholder="Ask your question here..." required class="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"/>
               <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300">Ask</button>
             </div>
           </form>
+          <button id="reset-btn" class="mb-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md">Reset Memory</button>
           <div id="response-box" class="bg-white border border-gray-200 rounded-lg p-6 max-h-[500px] overflow-y-auto space-y-4 prose max-w-none"></div>
         </div>
       </div>
@@ -171,6 +171,11 @@
 
   <!-- Chatbot Script -->
   <script>
+    if (!sessionStorage.getItem('session_id')) {
+      sessionStorage.setItem('session_id', crypto.randomUUID());
+    }
+    const session_id = sessionStorage.getItem('session_id');
+
     document.getElementById("chat-form").addEventListener("submit", async function(event) {
       event.preventDefault();
       const questionInput = document.getElementById("question");
@@ -198,7 +203,7 @@
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({ question })
+          body: JSON.stringify({ question, session_id })
         });
         const data = await res.json();
         const answer = data.answer || data.error || "No answer returned.";
@@ -206,6 +211,15 @@
       } catch (err) {
         aiBlock.innerHTML = "⚠️ There was an error getting a response.";
       }
+    });
+
+    document.getElementById("reset-btn").addEventListener("click", async () => {
+      await fetch("https://askpi-backend.onrender.com/reset", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ session_id })
+      });
+      document.getElementById("response-box").innerHTML = "";
     });
 
     function typeMarkdown(markdownText, container, delay = 10) {
